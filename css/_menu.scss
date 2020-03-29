@@ -1,0 +1,96 @@
+
+@include mediaMd{ 
+
+body{
+    margin:0 auto;
+    @include showNav;
+
+        header{
+            flex-flow: column;
+            position: fixed;
+            opacity:0.9;
+            top:1%;
+            .logo{
+                position: relative;
+                top:20px;
+                left:-150px;
+            }
+            #nav{
+                 position: absolute;
+                 left:0%;
+                 width:100%;
+
+                //  visibility: hidden;
+                 &.show{
+                 visibility: visible;
+
+                 }
+                 
+                ul{
+                    visibility: hidden;
+                    @include easeOut;
+                    transform:translate3d(0,-200%,0);
+                    width:80%;
+                    left:10%;
+                    top:20px;
+                    padding:20px;
+                    border-radius:15px;
+                    position:absolute;
+                    flex-flow:column;
+                    background:$light-grayish;
+                    text-align: center;
+                    &.show{
+                       visibility: visible;
+                       transform:translate3d(0,0,0);
+
+                       li{
+                           font-size:1.5rem;
+                          
+                       }
+                    }
+                 }
+            }
+            .head-button{
+                position: relative;;
+                right:-40%;
+                top:-12px;
+                width:10%;
+                height:20px;
+                cursor: pointer;
+                .btn-line{
+                    width:35px;
+                    height:3px;
+                    background:$darkblue;
+                    margin:6px;
+                    text-align:right;
+                    cursor: pointer;
+                    z-index: 3;
+                   
+                 }
+                &.close{
+                @include easeOut;
+                transform: rotate(180deg);
+                .btn-line{
+                    @include easeOut;
+                        transform:rotate(-45deg) translate(5px, -12px);
+                 &:nth-child(2){
+                     opacity:0;
+                 }
+                 &:nth-child(3){
+                    transform:rotate(45deg) translate(-7px, 1px);
+        
+                 }
+                }
+               
+
+                }
+             
+                .btn{
+                 display:none;
+                }
+            
+                
+            }
+        }} 
+    
+    }
